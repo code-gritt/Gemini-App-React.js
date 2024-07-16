@@ -1,36 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Sidebar.css";
 import { assets } from "../../../public/assets/assets";
 
 const Sidebar = () => {
+  const [extended, setExtended] = useState(false);
   return (
     <div className="sidebar_main">
       <div className="top">
-        <img className="menu" src={assets.menu_icon} alt="logo" />
+        <img
+          onClick={() => setExtended((prev) => !prev)}
+          className="menu"
+          src={assets.menu_icon}
+          alt="logo"
+        />
         <div className="new-chat">
-          <img className="menu" src={assets.plus_icon} alt="newlogo" />
-          <p>New Chat</p>
+          <img
+            style={{ position: "relative", right: "5px" }}
+            className="menu"
+            src={assets.plus_icon}
+            alt="newlogo"
+          />
+          {extended ? <p>New Chat</p> : null}
         </div>
-        <div className="recent">
-          <p className="recent-title">Recent</p>
-          <div className="recent-entry">
-            <img className="menu" src={assets.message_icon} alt="messagelogo" />
-            <p>What is React...</p>
+        {extended ? (
+          <div className="recent">
+            <p className="recent-title">Recent</p>
+            <div className="recent-entry">
+              <img
+                className="menu"
+                src={assets.message_icon}
+                alt="messagelogo"
+              />
+              <p>What is React...</p>
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
       <div className="bottom">
         <div className="bottom-item">
           <img className="menu" src={assets.question_icon} alt="" />
-          <p>Help</p>
+          {extended ? <p className="bottom-words">Help</p> : null}
         </div>
         <div className="bottom-item">
           <img className="menu" src={assets.history_icon} alt="" />
-          <p>Activity</p>
+          {extended ? <p className="bottom-words">Activity</p> : null}
         </div>
         <div className="bottom-item">
           <img className="menu" src={assets.setting_icon} alt="" />
-          <p>Settings</p>
+          {extended ? <p className="bottom-words">Settings</p> : null}
         </div>
       </div>
     </div>

@@ -17,8 +17,17 @@
   cursor: pointer;
 }
 
+.menu {
+  transition: all 0.5s ease-in-out;
+}
+
+.menu:hover {
+  transition: all 0.3s ease-in-out;
+  transform: rotate(180deg);
+}
+
 .sidebar_main .new-chat {
-  margin-top: 10px;
+  margin-top: 50px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -28,4 +37,55 @@
   font-size: 14px;
   color: grey;
   cursor: pointer;
+}
+
+.sidebar_main .new-chat:hover {
+  background-color: #e2e6eb;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.03);
+}
+
+.sidebar_main .recent {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar_main .recent-title {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.sidebar_main .recent-entry {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  padding: 10px;
+  padding-right: 40px;
+  border-radius: 50px;
+  color: #282828;
+  cursor: pointer;
+}
+
+.sidebar_main .recent-entry:hover {
+  background-color: #e2e6eb;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.03);
+}
+
+.bottom-item {
+  display: flex;
+  justify-content: start;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.bottom-item:hover {
+  background-color: #e2e6eb;
+  border-radius: 50px;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.03);
+}
+
+.bottom-words {
+  margin-left: 10px;
 }
