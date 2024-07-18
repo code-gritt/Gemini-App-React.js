@@ -7,11 +7,11 @@
  * https://ai.google.dev/gemini-api/docs/get-started/node
  */
 
-const {
+import {
   GoogleGenerativeAI,
   HarmCategory,
   HarmBlockThreshold,
-} = require("@google/generative-ai");
+} from "@google/generative-ai";
 
 const apiKey = "AIzaSyAJGpJasbFuZm4c3uyzTW8nFsQFaV-pHSI";
 const genAI = new GoogleGenerativeAI(apiKey);
@@ -28,7 +28,7 @@ const generationConfig = {
   responseMimeType: "text/plain",
 };
 
-async function run() {
+async function run(prompt) {
   const chatSession = model.startChat({
     generationConfig,
     // safetySettings: Adjust safety settings
@@ -36,8 +36,10 @@ async function run() {
     history: [],
   });
 
-  const result = await chatSession.sendMessage("INSERT_INPUT_HERE");
+  const result = await chatSession.sendMessage(prompt);
+  const response = result.response;
   console.log(result.response.text());
+  return response.text();
 }
 
-run();
+export default run;
