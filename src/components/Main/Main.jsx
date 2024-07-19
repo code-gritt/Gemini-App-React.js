@@ -15,7 +15,7 @@ const Main = () => {
   } = useContext(Context);
   return (
     <>
-      <div className="main">
+      <div className="main showBox">
         <div className="nav">
           <p>Gemini</p>
           <img src={assets.user_icon} alt="" />
@@ -61,7 +61,18 @@ const Main = () => {
               </div>
               <div className="result-data">
                 <img src={assets.gemini_icon} alt="" />
-                <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+                {loading ? (
+                  <div className="loader showBox">
+                    <hr />
+                    <hr />
+                    <hr />
+                  </div>
+                ) : (
+                  <p
+                    className="showBox"
+                    dangerouslySetInnerHTML={{ __html: resultData }}
+                  ></p>
+                )}
               </div>
             </div>
           )}
